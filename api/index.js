@@ -93,13 +93,14 @@ export default async (req, res) => {
     return res.send(
       renderError({
         message: "Something went wrong",
-        secondaryMessage: "Language not found",
+        secondaryMessage: null,
         renderOptions: {
           title_color,
           text_color,
           bg_color,
           border_color,
           theme,
+          show_repo_link: false,
         },
       }),
     );
