@@ -49,6 +49,27 @@ export default async (req, res) => {
     rank_icon,
     show,
   } = req.query;
+  // Restrict access to allowed users (env-based, deny by default)
+  const allowedUsers = (process.env.ALLOWED_USERS || "")
+    .toLowerCase()
+    .split(",")
+    .filter(Boolean);
+
+  if (!username || !allowedUsers.includes(username.toLowerCase())) {
+    return res.send(
+      renderError({
+        message: "Not found",
+        renderOptions: {
+          title_color,
+          text_color,
+          bg_color,
+          border_color,
+          theme,
+        },
+      })
+    );
+  }
+  
   res.setHeader("Content-Type", "image/svg+xml");
 
   const access = guardAccess({
