@@ -59,13 +59,14 @@ export default async (req, res) => {
     return res.send(
       renderError({
         message: "Not found",
-        secondaryMessage: "",
+        secondaryMessage: "Profile not found.",
         renderOptions: {
           title_color,
           text_color,
           bg_color,
           border_color,
           theme,
+          show_repo_link: false,
         },
       })
     );
@@ -93,14 +94,13 @@ export default async (req, res) => {
     return res.send(
       renderError({
         message: "Something went wrong",
-        secondaryMessage: null,
+        secondaryMessage: "Language not found",
         renderOptions: {
           title_color,
           text_color,
           bg_color,
           border_color,
           theme,
-          show_repo_link: false,
         },
       }),
     );
