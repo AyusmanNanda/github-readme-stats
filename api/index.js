@@ -59,7 +59,7 @@ export default async (req, res) => {
     return res.send(
       renderError({
         message: "Not found",
-        secondaryMessage: "Profile not found.",
+        secondaryMessage: "Stats cannot be displayed",
         renderOptions: {
           title_color,
           text_color,
