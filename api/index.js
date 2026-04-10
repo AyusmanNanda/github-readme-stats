@@ -59,6 +59,7 @@ export default async (req, res) => {
     return res.send(
       renderError({
         message: "Not found",
+        secondaryMessage: "",
         renderOptions: {
           title_color,
           text_color,
